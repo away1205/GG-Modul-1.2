@@ -61,7 +61,7 @@ const printSongAsync = async () => {
 Explanation:
 - The code demonstrates the usage of promises and async/await to handle asynchronous operations in JavaScript.
 - The `fakeRequest` function simulates an asynchronous request that returns a promise.
-- The `fakeRequest` function has a 20% chance of resolving or rejecting the promise based on the value of `random`.
+- The `fakeRequest` function has a 20% chance of resolving or rejecting the promise based on the value of `chance`.
 - The `fakeRequest` function returns a promise that resolves with the `SongSchemaJson` in case of a successful request, or rejects with an error message if the request fails.
 - Using promises, the `fakeRequest` is called with the `'promise'` argument. The `.then()` method is used to handle the resolved promise by parsing the JSON response and logging the result. If the promise is rejected, the `.catch()` method is used to handle the error and log the rejection message.
 - Using async/await, the `printSongAsync` function is defined as an asynchronous function. It calls the `fakeRequest` function with the `'async'` argument using the `await` keyword. The response is then parsed into a JSON object, and the result is logged if the promise is resolved. If the promise is rejected, the error is caught and logged using the `try...catch` block.
