@@ -11,20 +11,20 @@ Here's the documentation for the provided code that explains the concept of prom
 const songSchema = {
   title: 'song title',
   artists: [{ name: 'artist name 1' }],
+  duration: 200,
 };
 
-// Converting songSchema to JSON format
+// Converting songSchema to JSON format to imitate API data
 const SongSchemaJson = JSON.stringify(songSchema);
 
 // Function to simulate a fake asynchronous request
 const fakeRequest = (url) => {
   return new Promise((resolve, reject) => {
     // Simulating random request time
-    const random = Math.random();
+    const chance = Math.random();
     setTimeout(() => {
-      // Resolving the promise with SongSchemaJson if random < 0.2
-      // Rejecting the promise with an error message otherwise
-      if (random < 0.2) {
+      // Resolving the promise with 20% chance
+      if (chance < 0.2) {
         resolve(SongSchemaJson);
       } else {
         reject('Request Failed');
@@ -37,23 +37,23 @@ const fakeRequest = (url) => {
 fakeRequest('promise')
   .then((data) => {
     const response = data;
-    return JSON.parse(response); // Parsing the JSON response
+    return JSON.parse(response); 
   })
   .then((data) => {
-    console.log('RESOLVED', data); // Logging the resolved data
+    console.log('RESOLVED', data); 
   })
   .catch((error) => {
-    console.log('REJECTED', error); // Logging the rejected error
+    console.log('REJECTED', error); 
   });
 
 // Using Async/Await to handle the fakeRequest
 const printSongAsync = async () => {
   try {
     const response = await fakeRequest('async');
-    const song = JSON.parse(response); // Parsing the JSON response
-    console.log('RESOLVED', song); // Logging the resolved song
+    const song = JSON.parse(response); 
+    console.log('RESOLVED', song); 
   } catch (error) {
-    console.log('REJECTED', error); // Logging the rejected error
+    console.log('REJECTED', error);
   }
 };
 ```
